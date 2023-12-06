@@ -257,7 +257,7 @@ export const models = [
     },
   },
   {
-    url: "/model/aristophanes/aristophanes_-_staatsoper_unter_den_linden.glb",
+    url: "/model/aristophanes/output.glb",
     extraInfo:
       "https://www.greek-language.gr/digitalResources/ancient_greek/history/grammatologia/page_048.html",
     name: "Αριστοφάνης",
