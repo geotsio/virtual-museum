@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sophocles
+* source:	https://sketchfab.com/3d-models/sophocles-49f2547319664c9b98c9b51ccb4347f4
+* author:	tdr125 (https://sketchfab.com/tdr125)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sophocles" (https://sketchfab.com/3d-models/sophocles-49f2547319664c9b98c9b51ccb4347f4) by tdr125 (https://sketchfab.com/tdr125) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

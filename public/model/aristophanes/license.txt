@@ -1,0 +1,11 @@
+Model Information:
+* title:	Aristophanes - Staatsoper unter den Linden
+* source:	https://sketchfab.com/3d-models/aristophanes-staatsoper-unter-den-linden-e1050eaaf4b64a6d927a758fd1606166
+* author:	VIMUNE (https://sketchfab.com/vimune)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Aristophanes - Staatsoper unter den Linden" (https://sketchfab.com/3d-models/aristophanes-staatsoper-unter-den-linden-e1050eaaf4b64a6d927a758fd1606166) by VIMUNE (https://sketchfab.com/vimune) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

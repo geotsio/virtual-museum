@@ -1,0 +1,8 @@
+Model Information:
+* title:	Thukydides
+* source:	https://sketchfab.com/3d-models/thukydides-688f9cc6e2dd4b0aa38344bf0e59b770
+* author:	noe-3d.at (https://sketchfab.com/www.noe-3d.at)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

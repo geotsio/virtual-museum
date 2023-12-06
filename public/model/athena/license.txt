@@ -1,0 +1,11 @@
+Model Information:
+* title:	Kost_Athena_Zbrush_Final
+* source:	https://sketchfab.com/3d-models/kost-athena-zbrush-final-fe3bc09808e644b0aa78f232b2d9aad7
+* author:	zoekost (https://sketchfab.com/zoekost)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Kost_Athena_Zbrush_Final" (https://sketchfab.com/3d-models/kost-athena-zbrush-final-fe3bc09808e644b0aa78f232b2d9aad7) by zoekost (https://sketchfab.com/zoekost) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

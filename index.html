@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=GFS+Neohellenic:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Vite App</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+      html {
+        width: 100vw;
+        height: 100vh;
+      }
+      body {
+        background-color: #fff;
+        color: #444;
+      }
+
+      a {
+        color: #08f;
+      }
+
+      #content {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      #content > div {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      /* #intro-page {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+      } */
+
+      #c {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .list-item > div {
+        width: 100%;
+        height: 100%;
+      }
+
+      #details-wrapper,
+      #congrats-page,
+      #intro-page,
+      #letters-page,
+      #arts-page,
+      #exercises-page {
+        width: 100vw;
+        height: 100vh;
+        background-color: #0a192f;
+        position: absolute;
+        top: 0;
+        z-index: 1000;
+      }
+
+      @keyframes fadeInOpacity {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      #tooltip {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #0a192f;
+        min-height: 300px;
+        width: 450px;
+        padding: 30px 30px 30px 0px;
+        border-radius: 10px;
+        color: #c3cded;
+        opacity: 1;
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 0.5s;
+        display: flex;
+      }
+
+      /* #5cc4b0
+      #76d4c2
+
+
+      /* #d4c076 */
+
+      #statue-name {
+        color: #c3cded;
+        background: #5f9ad2ba;
+        padding: 5px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+      }
+      #statue-description {
+        background-color: #172a46;
+        padding: 20px;
+        border-radius: 3px;
+        margin: 30px 0px 35px 0px;
+        text-align: center;
+      }
+
+      #show-details {
+        margin: auto;
+        background-color: transparent;
+        font-size: 13px;
+        background-color: #dae6f1;
+        color: #172a46;
+        display: block;
+        font-weight: 700;
+        padding: 5px 19px;
+        border-radius: 5px;
+      }
+
+      #details-wrapper {
+        background-color: transparent;
+      }
+
+      #details {
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
+      #details > div {
+        flex: 1;
+      }
+      /* #info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      } */
+      #details-title {
+        color: #c3cded;
+        background: #5f9ad2ba;
+        margin: 50px 50px 0px 50px;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+      }
+      #details-text {
+        color: #c3cded;
+        background-color: #172a46;
+        padding: 30px;
+        margin: 50px 50px 30px 50px;
+        max-height: 55vh;
+        overflow: auto;
+        /* width */
+      }
+      #details-text::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      #details-text::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      /* Handle */
+      #details-text::-webkit-scrollbar-thumb {
+        background: #c3cded;
+        width: 5px;
+        border-radius: 4px;
+      }
+
+      /* Handle on hover */
+      #details-text::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      #details-extra {
+        text-align: center;
+        color: #c3cded;
+      }
+      #details-extra-url {
+        color: #5f9ad2ba;
+        font-weight: 700;
+      }
+      #details-exit {
+        background-color: transparent;
+        background-color: #dae6f1;
+        color: #172a46;
+        margin: auto;
+        display: block;
+        margin-top: 20px;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      #letters-page,
+      #arts-page,
+      #intro-page {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+      }
+      #letters-page-text,
+      #arts-page-text,
+      #congrats-page-text {
+        width: 90vw;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+      }
+      #letters-page-text-inside > div,
+      #arts-page-text-inside > div,
+      #congrats-page-text-inside > div:not(:last-child) {
+        color: #c3cded;
+        background-color: #172a46;
+        padding: 30px;
+        margin: 50px 50px 30px 50px;
+        font-size: 20px;
+        max-height: 55vh;
+        overflow: auto;
+      }
+
+      #arts-page-text-inside > div::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      #arts-page-text-inside > div::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      /* Handle */
+      #arts-page-text-inside > div::-webkit-scrollbar-thumb {
+        background: #c3cded;
+        width: 5px;
+        border-radius: 4px;
+      }
+
+      /* Handle on hover */
+      #arts-page-text-inside > div::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      #intro-page {
+        z-index: 1001;
+      }
+      #intro-page-text-inside {
+        padding-right: 40px;
+      }
+      #intro-page-text-inside > h2 {
+        font-size: 50px;
+        color: #ff858a;
+      }
+      #intro-page-text-inside > div {
+        font-size: 25px;
+        color: #dae6f1;
+      }
+      #intro-page-button {
+        background-color: #dae6f1;
+        color: #172a46;
+        margin-left: auto;
+        margin-top: 40px;
+        font-weight: 700;
+        font-size: 18px;
+        display: block;
+        cursor: default;
+        opacity: 0.5;
+      }
+      #letters-page-text-inside > h2,
+      #arts-page-text-inside > h2 {
+        color: #dae6f1;
+        background: #5f9ad2ba;
+        margin: 50px 50px 0px 50px;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+
+      #letters-page-button,
+      #arts-page-button,
+      #exercises-page-exitresult-button,
+      #exercises-page-next-button,
+      #exercises-page-exithelp-button {
+        background-color: #dae6f1;
+        color: #172a46;
+        margin: auto;
+        display: block;
+        margin-top: 20px;
+        width: 200px;
+        font-weight: 700;
+      }
+
+      #congrats-page-exit-button,
+      #congrats-page-exercises-button {
+        background-color: #dae6f1;
+        color: #172a46;
+        font-weight: 700;
+      }
+      #congrats-page-exit-button {
+        margin-right: 20px;
+      }
+      #congrats-page-buttons {
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 50px;
+      }
+
+      #congrats-page-buttons {
+        margin-left: auto;
+      }
+
+      #exercises-page-help {
+        padding: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      #exercises-page-next-button {
+        margin-left: auto;
+      }
+      #exercises-page-help-button {
+        background-color: #c3cded;
+        margin-left: auto;
+        display: block;
+        margin-top: 20px;
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+      }
+
+      #exercises-page-result-completion {
+        color: #c3cded;
+        font-size: 35px;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      #exercises-page-result-comment,
+      #exercises-page-help-text {
+        padding: 30px;
+        padding-top: 0px;
+        color: #c3cded;
+        font-size: 17px;
+        text-align: center;
+      }
+
+      #exercises-page-help-text {
+        font-size: 20px;
+      }
+
+      #exercises-page-help-title {
+        font-size: 40px;
+        color: #ff858a;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      #scene {
+        width: 100%;
+        height: 100%;
+      }
+      #scene > div {
+        width: 100%;
+        height: 100%;
+      }
+      .hide {
+        display: none !important;
+      }
+      .show {
+        display: block;
+      }
+
+      /* #exercises-page {
+        height: 100%;
+        background: #222222;
+        font-family: "Lato", sans-serif;
+      } */
+
+      #control-buttons {
+        position: absolute;
+        bottom: 35px;
+        right: 20px;
+        display: flex;
+      }
+
+      #control-buttons button {
+        width: max-content;
+        margin-right: 20px;
+
+        background-color: #dae6f1;
+        color: #172a46;
+        font-weight: 700;
+      }
+
+      .container {
+        display: block;
+        position: relative;
+        margin: 40px auto;
+        height: auto;
+        width: 50vw;
+        padding: 20px;
+      }
+
+      h2 {
+        color: #c3cded;
+      }
+
+      .container ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+      }
+
+      ul li {
+        color: #c3cded;
+        display: block;
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 100px;
+        border-bottom: 1px solid #c3cded59;
+      }
+
+      ul li input[type="radio"] {
+        position: absolute;
+        visibility: hidden;
+      }
+
+      ul li label {
+        display: block;
+        position: relative;
+        font-weight: 300;
+        font-size: 1.35em;
+        padding: 25px 25px 25px 80px;
+        margin: 10px auto;
+        height: 30px;
+        z-index: 9;
+        cursor: pointer;
+        -webkit-transition: all 0.25s linear;
+      }
+
+      ul li:hover label {
+        color: #ffffff;
+      }
+
+      ul li .check {
+        display: block;
+        position: absolute;
+        border: 5px solid #c3cded;
+        border-radius: 100%;
+        height: 40px;
+        width: 40px;
+        top: 30px;
+        left: 20px;
+        z-index: 5;
+        transition: border 0.25s linear;
+        -webkit-transition: border 0.25s linear;
+      }
+
+      ul li:hover .check {
+        border: 5px solid #ffffff;
+      }
+
+      ul li .check::before {
+        display: block;
+        position: absolute;
+        content: "";
+        border-radius: 100%;
+        height: 15px;
+        width: 15px;
+        top: 25%;
+        left: 26%;
+        margin: auto;
+        transition: background 0.25s linear;
+        -webkit-transition: background 0.25s linear;
+      }
+
+      input[type="radio"]:checked ~ .check {
+        border: 5px solid #ff858a;
+      }
+
+      input[type="radio"]:checked ~ .check::before {
+        background: #ff858a;
+      }
+
+      input[type="radio"]:checked ~ label {
+        color: #ff858a;
+      }
+      .card-container {
+        position: relative;
+        width: 900px;
+        display: flex;
+        justify-content: space-around;
+        margin: 40px auto;
+      }
+
+      .card-container .card {
+        position: relative;
+        width: 250px;
+        background: linear-gradient(0deg, #172a46, #172a46, #172a46);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        border-radius: 4px;
+        text-align: center;
+        overflow: hidden;
+        transition: 0.5s;
+      }
+
+      .card-container .card:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.03);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .percent {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 50px #0a192f;
+        background: #0a192f;
+        z-index: 1000;
+      }
+
+      .percent .number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+
+      .percent .number h2 {
+        color: #dae6f1;
+        font-weight: 700;
+        font-size: 40px;
+        transition: 0.5s;
+      }
+
+      .percent .number h2 span {
+        font-size: 24px;
+        color: #dae6f1;
+      }
+
+      .text {
+        position: relative;
+        color: #dae6f1;
+        margin-top: 20px;
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: 0.5s;
+      }
+
+      svg {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        z-index: 1000;
+      }
+
+      svg circle {
+        width: 100%;
+        height: 100%;
+        fill: none;
+        stroke: #191919;
+        stroke-width: 10;
+        stroke-linecap: round;
+        transform: translate(5px, 5px);
+      }
+
+      svg circle:nth-child(2) {
+        stroke-dasharray: 440;
+        stroke-dashoffset: 440;
+      }
+
+      .card:nth-child(1) svg circle:nth-child(2) {
+        stroke-dashoffset: calc(440 - (440 * 90) / 100);
+        stroke: #ff858a;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="canvas"></canvas>
+    <div id="content">
+      <div>
+        <div id="intro-page">
+          <img
+            src="./public/—Pngtree—character collection of tourist big_7585130.png"
+            alt="Girl in a jacket"
+            width="500"
+            height="600"
+          />
+          <div id="intro-page-text-inside">
+            <h2>Μουσείο κλασικών γραμμάτων και τεχνών</h2>
+            <div>
+              Καλώς ήρθες στο μουσείο μας! Εγώ είμαι η Μαρία και θα ειμαι η
+              οδηγός σου κατα την περιήγηση στους χώρους της έκθεσης.
+              <br /><br />
+              Στόχος μου είναι, οταν ολοκληρωθεί η ξενάγηση, να έχεις αποκτήσει
+              μια πολύ καλη εικόνα για τα γραμματα και τις τεχνες της κλασικης
+              εποχής.
+              <br /><br />
+              Αυτό το ψηφιακό μουσείο φτιάχτηκε με βάση το κεφάλαιο Ή του
+              βιβλίου της ιστορίας της Α' Γυμνασίου και φιλοδοξεί να σου
+              μεταδώσει τις ίδιες γνώσεις με έναν πιο διασκεδαστικό τρόπο!
+            </div>
+            <button id="intro-page-button">
+              Δώσε λίγο χρόνο στο μουσείο να φορτώσει...
+            </button>
+          </div>
+        </div>
+        <div id="letters-page">
+          <div id="letters-page-text">
+            <img
+              src="./public/—Pngtree—character collection of tourist big_7585130.png"
+              alt="Girl in a jacket"
+              width="500"
+              height="600"
+            />
+            <div id="letters-page-text-inside">
+              <h2>Γράμματα</h2>
+              <div>
+                Την κλασική εποχή (479-332 π.Χ.), παράλληλα με την απόκρουση του
+                εξωτερικού εχθρού, των Περσών, και την ολοκλήρωση των
+                δημοκρατικών θεσμών, ανθίζουν τα γράμματα. Υπάρχει μεγάλη
+                ανάπτυξη στην Ιστορία, τη Φιλοσοφία, την Ιατρική, τη Ρητορική
+                και το Θέατρο. Πάμε να γνωρίσουμε κάποιους βασκικούς εκπροσώπους
+                το κάθε είδους!
+              </div>
+              <button id="letters-page-button">Πάμε!</button>
+            </div>
+          </div>
+        </div>
+        <div id="arts-page">
+          <div id="arts-page-text">
+            <img
+              src="./public/—Pngtree—character collection of tourist big_7585130.png"
+              alt="Girl in a jacket"
+              width="500"
+              height="600"
+            />
+            <div id="arts-page-text-inside">
+              <h2>Τέχνες</h2>
+              <div>
+                Η κλασική τέχνη υπήρξε για πολλούς αιώνες το πρότυπο και το
+                μέτρο σύγκρισης κάθε καλλιτεχνικού έργου. Βασικά γνωρίσματα της
+                κλασικής τέχνης είναι το μέτρο, η αρμονία και το κάλλος. Η
+                κλασική τέχνη αποφεύγει κάθε υπερβολή στις στάσεις, τις
+                κινήσεις, τις χειρονομίες, την έκφραση του προσώπου. Οι μορφές
+                είναι αρμονικές και συμμετρικές, οι χειρονομίες συγκρατημένες,
+                το βλέμμα βαθύ και στοχαστικό, η εκδήλωση έντονων συναισθημάτων
+                αποφεύγεται. Η τέχνη της κλασικής εποχής διακρίνεται σε τρεις
+                περιόδους που ξεχωρίζουν καθαρά μεταξύ τους, παρόλα τα κοινά
+                γνωρίσματά τους που αναφέρθηκαν παραπάνω. Στην πρώιμη κλασική
+                τέχνη ή τέχνη του αυστηρού ρυθμού (480-450 π.Χ.) οι μορφές είναι
+                πιο βαριές και στιβαρές και μερικές φορές σε έντονη στιγμιαία
+                κίνηση. Αντίθετα, κατά την ώριμη κλασική περίοδο (450-390 π.Χ.)
+                οι μορφές παριστάνονται σε ήρεμες στάσεις, ενώ στα γυναικεία
+                αγάλματα τα ενδύματα αρχίζουν να ελαφραίνουν και να αναδεικνύουν
+                την ομορφιά των σωμάτων. Στην ύστερη κλασική εποχή (390-323
+                π.Χ.) οι μορφές θα αρχίσουν πάλι να κινούνται πιο ελεύθερα στον
+                χώρο, τα σώματα να λυγίζουν, οι χειρονομίες να γίνονται πιο
+                εύγλωττες, τα ενδύματα και τα χτενίσματα πιο πολύπλοκα και
+                εξεζητημένα, η έκφραση των συναισθημάτων πολύ πιο έντονη.
+              </div>
+              <button id="arts-page-button">Κατάλαβα!</button>
+            </div>
+          </div>
+        </div>
+        <div id="tooltip">
+          <img
+            src="./public/—Pngtree—character collection of tourist big_7585130.png"
+            alt="Girl in a jacket"
+            width="170"
+            height="200"
+          />
+          <div>
+            <div id="statue-name"></div>
+            <div id="statue-description"></div>
+            <button id="show-details">Δες πληροφορίες!</button>
+          </div>
+        </div>
+        <div id="control-buttons">
+          <button id="previous">Προηγούμενο</button>
+          <button id="next">Ξεκίνα την περιήγηση!</button>
+        </div>
+        <div id="details-wrapper">
+          <div id="details">
+            <div id="scene"></div>
+            <div id="info">
+              <div id="details-title"></div>
+              <div id="details-text"></div>
+              <div id="details-extra">
+                Πήγαινε τις γνώσεις σου ενα βήμα παραπέρα πατώντας
+                <a id="details-extra-url" target="_blank">εδώ</a> !
+              </div>
+              <button id="details-exit">Επιστροφή στη περιήγηση!</button>
+            </div>
+          </div>
+        </div>
+        <div id="congrats-page">
+          <div id="congrats-page-text">
+            <img
+              src="./public/—Pngtree—character collection of tourist big_7585130.png"
+              alt="Girl in a jacket"
+              width="500"
+              height="600"
+            />
+            <div id="congrats-page-text-inside">
+              <div>
+                Μπράβο, ολοκλήρωσες την περιήγηση! Νομίζω πως τώρα θα έχεις
+                αποκτήσει μια καλή εικόνα των γραμμάτων και των τεχνών της
+                κλασικήςς εποχής! Αν θες να τεστάρεις τις γνώσεις σου, μπορείς
+                να απαντήσεις σε κάποιες ερωτήσεις που έχω ετοιμάσει για σενα!
+              </div>
+              <div id="congrats-page-text-with-help">
+                Αν θελήσεις να απαντήσεις στις ερωτησεις να ξέρεις πως θα έχεις
+                μια βοήθεια από μένα, γιατί διάβασες τις λεπtομέρειες όλων των
+                εκθεμάτων!
+              </div>
+              <div id="congrats-page-text-without-help">
+                Αν θελήσεις να απαντήσεις στις ερωτησεις να ξέρεις πως, επείδη
+                φαίνεται να μη διάβασες τις λεπρομέρειες όλων των εκθεμάτων
+                έχασες μια βοήθεια από μένα...<br /><br />Μπορείς όμως να
+                επιστρέψεις στη περιήγηση και να καλύψεις τα κενά σου και αν
+                διαβάσεις όλες τις λεπρομέρειες, τότε η βοήθεια θα είναι εδώ για
+                σένα!
+              </div>
+              <div id="congrats-page-buttons">
+                <button id="congrats-page-exit-button">Έξοδος</button>
+                <button id="congrats-page-exercises-button">
+                  Πάμε στις ερωτήσεις!
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="exercises-page">
+          <div id="exercises-page-main">
+            <button id="exercises-page-help-button" title="Βοήθεια">
+              <img
+                src="./public/bulb.png"
+                alt="Girl in a jacket"
+                width="30"
+                height="30"
+              />
+            </button>
+            <div id="exercises-page-text">Ερωτηση</div>
+            <button id="exercises-page-next-button">Επόμενο</button>
+          </div>
+          <div id="exercises-page-help">
+            <div id="exercises-page-help-title">
+              Διάβασε το παρακάτω κείμενο και θα βρείς την απάντηση!
+            </div>
+            <div id="exercises-page-help-text">Βοηθεια</div>
+            <button id="exercises-page-exithelp-button">Ωραία!</button>
+          </div>
+          <div id="exercises-page-result">
+            <div id="exercises-page-result-text">
+              <div id="exercises-page-result-completion">
+                Η άσκηση ολοκληρώθηκε!
+              </div>
+              <div class="card-container">
+                <div class="card">
+                  <div class="box">
+                    <div class="percent">
+                      <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle
+                          id="exercises-page-result-score-circle"
+                          cx="70"
+                          cy="70"
+                          r="70"
+                        ></circle>
+                      </svg>
+                      <div class="number">
+                        <h2>
+                          <span id="exercises-page-result-score"></span
+                          ><span>%</span>
+                        </h2>
+                      </div>
+                    </div>
+                    <h2 class="text">Βαθμολογία</h2>
+                  </div>
+                </div>
+              </div>
+              <div id="exercises-page-result-comment"></div>
+            </div>
+            <button id="exercises-page-exitresult-button">Ωραία!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="main/main.js" defer></script>
+  </body>
+</html>
