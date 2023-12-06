@@ -189,8 +189,6 @@ next.addEventListener("click", (e) => {
     if (Object.keys(detailsOpened).length === models.length) {
       hasHelp = true;
     }
-    console.log(detailsOpened);
-    console.log(Object.keys(detailsOpened).length === models.length);
     if (hasHelp) {
       congratsPageTextWithHelp.classList.remove("hide");
       congratsPageTextWithoutHelp.classList.add("hide");
@@ -542,8 +540,6 @@ window.addEventListener("resize", () => {
 //   .name("Model Z Axis Position");
 
 window.addEventListener("mouseup", (e) => {
-  console.log(detailsModel?.position);
-  console.log(detailsModel?.rotation);
   // camera.position.set(9.36, 0.6, -2.6216304054672643);
   // camera.rotation.set(2.405195588750891, 1.321531210329145, 2.420790616484844);
 });
