@@ -1,6 +1,7 @@
 import "../style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { models } from "./models";
 import { questions } from "./questions";
@@ -652,10 +653,13 @@ const data = {
 // directionalLightFolder.open();
 
 const init = () => {
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath("https://www.gstatic.com/draco/v1/decoders/");
+
   // gltf Loader
   const gltfLoader = new GLTFLoader();
-
-  gltfLoader.load("/model/museum/scene.gltf", (gltf) => {
+  gltfLoader.setDRACOLoader(dracoLoader);
+  gltfLoader.load("/model/museum/museum.glb", (gltf) => {
     const model = gltf.scene;
     scene.add(model);
     modelsLoaded++;

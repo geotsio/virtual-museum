@@ -429,7 +429,7 @@ export const models = [
     },
   },
   {
-    url: "/model/paioniosNike/scene.gltf",
+    url: "/model/paioniosNike/paionios-nikeglb.glb",
     extraInfo:
       "https://www.artmag.gr/articles/art-articles/about-art/item/7400-h-plastikh-ths-wrimhs-klasikhs-epoxhs",
     name: "Νίκη του Μενδαίου Παιωνίου",
